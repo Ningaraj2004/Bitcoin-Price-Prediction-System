@@ -2,6 +2,10 @@
 
 A machine learning and deep learning-based application for Bitcoin price forecasting and market trend analysis using historical cryptocurrency data.
 
+## 🚀 Live Demo
+
+[View Live Demo](https://bitcoin-price-prediction-system.streamlit.app/)
+
 ## Overview
 
 This project analyzes historical Bitcoin market data to predict next-day closing prices and market direction. It combines traditional machine learning algorithms with LSTM neural networks and presents the results through an interactive Streamlit dashboard.
