@@ -1,0 +1,51 @@
+2026-11-26 04:05:59,557 | INFO     | src.btc_prediction.features.build_features | Dataset built: 4421 rows (dropped 31 rows with NaN features/target).
+2026-11-26 04:05:59,557 | INFO     | src.btc_prediction.training.splits | Chronological split: train=3094 (2014-10-17..2023-04-06), val=663 (2023-04-07..2025-01-28), test=664 (2025-01-29..2026-11-23)
+2026-11-26 04:05:59,560 | INFO     | src.btc_prediction.training.train_regression | Training regression model: Linear Regression
+2026-11-26 04:05:59,569 | INFO     | src.btc_prediction.training.train_regression | Saved Linear Regression artifact.
+2026-11-26 04:05:59,569 | INFO     | src.btc_prediction.training.train_regression | Training regression model: Random Forest
+2026-11-26 04:06:04,929 | INFO     | src.btc_prediction.training.train_regression | Saved Random Forest artifact.
+2026-11-26 04:06:04,929 | INFO     | src.btc_prediction.training.train_regression | Training regression model: XGBoost
+2026-11-26 04:06:05,983 | INFO     | src.btc_prediction.training.train_regression | Saved XGBoost artifact.
+2026-11-26 04:06:05,984 | INFO     | src.btc_prediction.training.train_regression | Regression training done. Best on validation: Linear Regression
+2026-11-26 04:06:05,985 | INFO     | src.btc_prediction.training.splits | Chronological split: train=3094 (2014-10-17..2023-04-06), val=663 (2023-04-07..2025-01-28), test=664 (2025-01-29..2026-11-23)
+2026-11-26 04:06:06,002 | INFO     | src.btc_prediction.training.train_classification | Training classification model: Logistic Regression
+2026-11-26 04:06:06,026 | INFO     | src.btc_prediction.training.train_classification | Saved Logistic Regression artifact.
+2026-11-26 04:06:06,026 | INFO     | src.btc_prediction.training.train_classification | Training classification model: Random Forest
+2026-11-26 04:06:07,868 | INFO     | src.btc_prediction.training.train_classification | Saved Random Forest artifact.
+2026-11-26 04:06:07,868 | INFO     | src.btc_prediction.training.train_classification | Training classification model: XGBoost
+2026-11-26 04:06:08,233 | INFO     | src.btc_prediction.training.train_classification | Saved XGBoost artifact.
+2026-11-26 04:06:08,234 | INFO     | src.btc_prediction.training.train_classification | Classification training done. Best on validation: XGBoost
+2026-11-26 04:06:08,236 | INFO     | src.btc_prediction.training.splits | Chronological split: train=3094 (2014-10-17..2023-04-06), val=663 (2023-04-07..2025-01-28), test=664 (2025-01-29..2026-11-23)
+/home/z/.venv/lib/python3.12/site-packages/sklearn/base.py:493: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+/home/z/.venv/lib/python3.12/site-packages/sklearn/base.py:493: UserWarning: X does not have valid feature names, but RandomForestRegressor was fitted with feature names
+  warnings.warn(
+/home/z/.venv/lib/python3.12/site-packages/sklearn/base.py:493: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+/home/z/.venv/lib/python3.12/site-packages/sklearn/base.py:493: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795665968.638887    2855 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1795665968.666069    2855 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795665970.169155    2855 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-26 04:06:10,689 | INFO     | src.btc_prediction.models.lstm | LSTM sequences: train=(3034, 60, 22), val=(3697, 60, 22)
+2026-11-26 04:07:59,435 | INFO     | src.btc_prediction.training.train_lstm | LSTM trained for 24 epochs (early stopping).
+2026-11-26 04:07:59,993 | INFO     | src.btc_prediction.training.train_lstm | LSTM test metrics: {'MAE': 12717.83536599736, 'MSE': 211367419.35600582, 'RMSE': 14538.480641250166, 'R2': 0.32240677094409464, 'n_test_sequences': 663}
+2026-11-26 04:08:00,000 | INFO     | src.btc_prediction.evaluation.reporting | Saved comparison tables: [PosixPath('/home/z/my-project/bitcoin-price-prediction/reports/regression_comparison.csv'), PosixPath('/home/z/my-project/bitcoin-price-prediction/reports/classification_comparison.csv')]
+2026-11-26 04:08:02,140 | INFO     | src.btc_prediction.evaluation.reporting | Generated 18 reports/figures.
+
+✅ Training complete. Genuine test-set results:
+   [reg] Persistence Baseline MAE=  1,366.93  RMSE=  1,934.68  R2= 0.9880
+   [reg] Linear Regression    MAE=  1,397.66  RMSE=  1,965.31  R2= 0.9876
+   [reg] Random Forest        MAE= 23,774.37  RMSE= 29,423.78  R2=-1.7690
+   [reg] XGBoost              MAE= 28,787.06  RMSE= 33,921.27  R2=-2.6802
+   [reg] LSTM                 MAE= 12,717.84  RMSE= 14,538.48  R2= 0.3224
+   [clf] Majority-Class Baseline Acc=0.486  F1=0.655  AUC=n/a
+   [clf] Logistic Regression    Acc=0.502  F1=0.103  AUC=0.493
+   [clf] Random Forest          Acc=0.505  F1=0.035  AUC=0.488
+   [clf] XGBoost                Acc=0.514  F1=0.277  AUC=0.500
+
+Artifacts: /home/z/my-project/bitcoin-price-prediction/models/artifacts
+Reports:   reports/ (tables + figures)

@@ -1,0 +1,39 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Large/temporary files that should never be committed
+*.zip
+*.log
+*.tmp
+data/raw/*.parquet
+nohup.out
+
+# NOTE: data/raw and data/processed CSV files ARE committed on purpose:
+# a ~10-year daily BTC-USD history is only a few hundred KB, which keeps the
+# dashboard usable even when Yahoo Finance is unreachable, and keeps the
+# repository size manageable. Delete them before committing if you prefer a
+# data-free repo; the pipeline re-downloads everything via
+# `python scripts/download_data.py --refresh`.
